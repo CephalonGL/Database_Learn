@@ -27,7 +27,6 @@ namespace dblabs
 
         private void Groups_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'facultyDataSet.Группы' table. You can move, or remove it, as needed.
             this.группыTableAdapter.Fill(this.facultyDataSet.Группы);
 
         }

@@ -27,7 +27,6 @@ namespace dblabs
 
         private void Students_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'facultyDataSet.Студенты' table. You can move, or remove it, as needed.
             this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
 
         }

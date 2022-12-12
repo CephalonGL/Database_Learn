@@ -27,7 +27,6 @@ namespace dblabs
 
         private void FacultyForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'facultyDataSet.Факультет' table. You can move, or remove it, as needed.
             this.факультетTableAdapter.Fill(this.facultyDataSet.Факультет);
 
         }

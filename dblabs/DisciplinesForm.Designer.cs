@@ -108,7 +108,7 @@
             this.предметыBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.предметыBindingNavigator.Name = "предметыBindingNavigator";
             this.предметыBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.предметыBindingNavigator.Size = new System.Drawing.Size(772, 33);
+            this.предметыBindingNavigator.Size = new System.Drawing.Size(1002, 33);
             this.предметыBindingNavigator.TabIndex = 0;
             this.предметыBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -218,7 +218,7 @@
             this.предметыDataGridView.Name = "предметыDataGridView";
             this.предметыDataGridView.RowHeadersWidth = 62;
             this.предметыDataGridView.RowTemplate.Height = 28;
-            this.предметыDataGridView.Size = new System.Drawing.Size(748, 306);
+            this.предметыDataGridView.Size = new System.Drawing.Size(978, 306);
             this.предметыDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -241,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 354);
+            this.ClientSize = new System.Drawing.Size(1002, 354);
             this.Controls.Add(this.предметыDataGridView);
             this.Controls.Add(this.предметыBindingNavigator);
             this.Name = "DisciplinesForm";
