@@ -12,6 +12,78 @@ namespace dblabs
 {
     public partial class MainForm : Form
     {
+        public static GroupsForm _groupsForm;
+
+        public static StudentsForm _studentsForm;
+
+        public static DisciplinesForm _disciplinesForm;
+
+        public static LearningDisciplinesByStudentsForm _learningDisciplinesByStudentsForm;
+
+        public static GroupsForm GroupsForm
+        {
+            get
+            {
+                if (_groupsForm is null
+                    || _groupsForm.IsDisposed)
+                {
+                    return _groupsForm = new GroupsForm();
+                }
+                else
+                {
+                    return _groupsForm;
+                }
+            }
+        }
+        
+        public static StudentsForm StudentsForm
+        {
+            get
+            {
+                if (_studentsForm is null
+                    || _studentsForm.IsDisposed)
+                {
+                    return _studentsForm = new StudentsForm();
+                }
+                else
+                {
+                    return _studentsForm;
+                }
+            }
+        }
+        
+        public static DisciplinesForm DisciplinesForm
+        {
+            get
+            {
+                if (_disciplinesForm is null
+                    || _disciplinesForm.IsDisposed)
+                {
+                    return _disciplinesForm = new DisciplinesForm();
+                }
+                else
+                {
+                    return _disciplinesForm;
+                }
+            }
+        }
+
+        public static LearningDisciplinesByStudentsForm LearningDisciplinesByStudentsForm
+        {
+            get
+            {
+                if (_learningDisciplinesByStudentsForm is null
+                    || _learningDisciplinesByStudentsForm.IsDisposed)
+                {
+                    return _learningDisciplinesByStudentsForm = new LearningDisciplinesByStudentsForm();
+                }
+                else
+                {
+                    return _learningDisciplinesByStudentsForm;
+                }
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -32,7 +104,7 @@ namespace dblabs
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("(C)ТУСУР, КСУП , Лубов Григорий Павлович , 580-2 ,2022",
+            MessageBox.Show("(C)ТУСУР, КСУП , Лубов Григорий Павлович, 580-2 ,2022",
                 "О программе",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -46,6 +118,31 @@ namespace dblabs
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             dblabs.Properties.Settings.Default.Save();
+        }
+
+        private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GroupsForm groupsForm = new GroupsForm();
+            groupsForm.Show();
+        }
+
+        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentsForm studentsForm= new StudentsForm();
+            studentsForm.Show();
+        }
+
+        private void disciplinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisciplinesForm disciplinesForm = new DisciplinesForm();
+            disciplinesForm.Show();
+        }
+
+        private void learningDisciplinesByStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LearningDisciplinesByStudentsForm learningDisciplinesByStudentsForm = 
+                new LearningDisciplinesByStudentsForm();
+            learningDisciplinesByStudentsForm.Show();
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dblabs
 {
-    public partial class Students : Form
+    public partial class StudentsForm : Form
     {
-        public Students()
+        public StudentsForm()
         {
             InitializeComponent();
         }
@@ -30,6 +30,19 @@ namespace dblabs
             // TODO: This line of code loads data into the 'facultyDataSet.Студенты' table. You can move, or remove it, as needed.
             this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
 
+        }
+
+        private void openPhotoButton_Click(object sender, EventArgs e)
+        {
+            string fileImage = "";
+            openFileDialogPhoto.Title = "Укажите файл для фото";
+            if (openFileDialogPhoto.ShowDialog() == DialogResult.OK)
+            {
+                fileImage = openFileDialogPhoto.FileName;
+                фотографияPictureBox.Image = new
+                    Bitmap(openFileDialogPhoto.FileName);
+            }
+            else fileImage = "";
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dblabs
 {
-    public partial class Disciplines : Form
+    public partial class DisciplinesForm : Form
     {
-        public Disciplines()
+        public DisciplinesForm()
         {
             InitializeComponent();
         }

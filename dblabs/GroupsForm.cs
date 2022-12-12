@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dblabs
 {
-    public partial class Groups : Form
+    public partial class GroupsForm : Form
     {
-        public Groups()
+        public GroupsForm()
         {
             InitializeComponent();
         }

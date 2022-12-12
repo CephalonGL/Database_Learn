@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dblabs
 {
-    public partial class LearningDisciplinesByStudents : Form
+    public partial class LearningDisciplinesByStudentsForm : Form
     {
-        public LearningDisciplinesByStudents()
+        public LearningDisciplinesByStudentsForm()
         {
             InitializeComponent();
         }
@@ -29,7 +29,6 @@ namespace dblabs
         {
             // TODO: This line of code loads data into the 'facultyDataSet.Изучение_предметов_студентами' table. You can move, or remove it, as needed.
             this.изучение_предметов_студентамиTableAdapter.Fill(this.facultyDataSet.Изучение_предметов_студентами);
-
         }
     }
 }
