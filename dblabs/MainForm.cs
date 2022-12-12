@@ -12,6 +12,8 @@ namespace dblabs
 {
     public partial class MainForm : Form
     {
+        public static FacultyForm _facultyForm;
+
         public static GroupsForm _groupsForm;
 
         public static StudentsForm _studentsForm;
@@ -19,6 +21,22 @@ namespace dblabs
         public static DisciplinesForm _disciplinesForm;
 
         public static LearningDisciplinesByStudentsForm _learningDisciplinesByStudentsForm;
+
+        public static FacultyForm FacultyForm
+        {
+            get
+            {
+                if (_facultyForm is null
+                    || _facultyForm.IsDisposed)
+                {
+                    return _facultyForm = new FacultyForm();
+                }
+                else
+                {
+                    return _facultyForm;
+                }
+            }
+        }
 
         public static GroupsForm GroupsForm
         {
@@ -122,27 +140,27 @@ namespace dblabs
 
         private void groupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GroupsForm groupsForm = new GroupsForm();
-            groupsForm.Show();
+            GroupsForm.Show();
         }
 
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StudentsForm studentsForm= new StudentsForm();
-            studentsForm.Show();
+            StudentsForm.Show();
         }
 
         private void disciplinesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisciplinesForm disciplinesForm = new DisciplinesForm();
-            disciplinesForm.Show();
+            DisciplinesForm.Show();
         }
 
         private void learningDisciplinesByStudentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LearningDisciplinesByStudentsForm learningDisciplinesByStudentsForm = 
-                new LearningDisciplinesByStudentsForm();
-            learningDisciplinesByStudentsForm.Show();
+            LearningDisciplinesByStudentsForm.Show();
+        }
+
+        private void facultyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FacultyForm.Show();
         }
     }
 }
