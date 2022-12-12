@@ -122,7 +122,7 @@ namespace dblabs
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("(C)ТУСУР, КСУП , Лубов Григорий Павлович, 580-2 ,2022",
+            MessageBox.Show("(C)ТУСУР, КСУП, Лубов Григорий Павлович, 580-2 ,2022",
                 "О программе",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
