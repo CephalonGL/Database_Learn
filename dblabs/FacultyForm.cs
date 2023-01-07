@@ -27,8 +27,17 @@ namespace dblabs
 
         private void FacultyForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'facultyDataSet.Группы' table. You can move, or remove it, as needed.
+            this.группыTableAdapter.Fill(this.facultyDataSet.Группы);
             this.факультетTableAdapter.Fill(this.facultyDataSet.Факультет);
 
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            Validate();
+            группыBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(this.facultyDataSet);
         }
     }
 }

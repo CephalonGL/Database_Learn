@@ -27,8 +27,17 @@ namespace dblabs
 
         private void Groups_Load(object sender, EventArgs e)
         {
+            this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
+            this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
             this.группыTableAdapter.Fill(this.facultyDataSet.Группы);
 
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            Validate();
+            студентыBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.facultyDataSet);
         }
     }
 }

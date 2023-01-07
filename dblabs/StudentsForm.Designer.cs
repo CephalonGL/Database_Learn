@@ -37,10 +37,12 @@
             System.Windows.Forms.Label адрес_пропискиLabel;
             System.Windows.Forms.Label фактический_адрес_проживанияLabel;
             System.Windows.Forms.Label фотографияLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsForm));
             System.Windows.Forms.Label год_поступленияLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsForm));
             this.студентыBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.студентыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facultyDataSet = new dblabs.facultyDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -62,8 +64,6 @@
             this.фотографияPictureBox = new System.Windows.Forms.PictureBox();
             this.openPhotoButton = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
-            this.студентыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facultyDataSet = new dblabs.facultyDataSet();
             this.студентыTableAdapter = new dblabs.facultyDataSetTableAdapters.СтудентыTableAdapter();
             this.tableAdapterManager = new dblabs.facultyDataSetTableAdapters.TableAdapterManager();
             this.год_поступленияComboBox = new System.Windows.Forms.ComboBox();
@@ -78,9 +78,9 @@
             год_поступленияLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.студентыBindingNavigator)).BeginInit();
             this.студентыBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.фотографияPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.фотографияPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // номер_зачётной_книжкиLabel
@@ -155,6 +155,15 @@
             фотографияLabel.TabIndex = 17;
             фотографияLabel.Text = "Фотография:";
             // 
+            // год_поступленияLabel
+            // 
+            год_поступленияLabel.AutoSize = true;
+            год_поступленияLabel.Location = new System.Drawing.Point(12, 259);
+            год_поступленияLabel.Name = "год_поступленияLabel";
+            год_поступленияLabel.Size = new System.Drawing.Size(143, 20);
+            год_поступленияLabel.TabIndex = 19;
+            год_поступленияLabel.Text = "Год поступления:";
+            // 
             // студентыBindingNavigator
             // 
             this.студентыBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -182,7 +191,7 @@
             this.студентыBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.студентыBindingNavigator.Name = "студентыBindingNavigator";
             this.студентыBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.студентыBindingNavigator.Size = new System.Drawing.Size(939, 33);
+            this.студентыBindingNavigator.Size = new System.Drawing.Size(939, 38);
             this.студентыBindingNavigator.TabIndex = 0;
             this.студентыBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -192,13 +201,23 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // студентыBindingSource
+            // 
+            this.студентыBindingSource.DataMember = "Студенты";
+            this.студентыBindingSource.DataSource = this.facultyDataSet;
+            // 
+            // facultyDataSet
+            // 
+            this.facultyDataSet.DataSetName = "facultyDataSet";
+            this.facultyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 33);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -208,7 +227,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -217,7 +236,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -226,13 +245,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 38);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -247,7 +266,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -255,7 +274,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -264,20 +283,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
             // студентыBindingNavigatorSaveItem
             // 
             this.студентыBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.студентыBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("студентыBindingNavigatorSaveItem.Image")));
             this.студентыBindingNavigatorSaveItem.Name = "студентыBindingNavigatorSaveItem";
-            this.студентыBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 28);
+            this.студентыBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 33);
             this.студентыBindingNavigatorSaveItem.Text = "Save Data";
             this.студентыBindingNavigatorSaveItem.Click += new System.EventHandler(this.студентыBindingNavigatorSaveItem_Click);
             // 
@@ -360,16 +379,6 @@
             // 
             this.openFileDialogPhoto.FileName = "openFileDialogPhoto";
             // 
-            // студентыBindingSource
-            // 
-            this.студентыBindingSource.DataMember = "Студенты";
-            this.студентыBindingSource.DataSource = this.facultyDataSet;
-            // 
-            // facultyDataSet
-            // 
-            this.facultyDataSet.DataSetName = "facultyDataSet";
-            this.facultyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // студентыTableAdapter
             // 
             this.студентыTableAdapter.ClearBeforeFill = true;
@@ -383,15 +392,6 @@
             this.tableAdapterManager.ПредметыTableAdapter = null;
             this.tableAdapterManager.СтудентыTableAdapter = this.студентыTableAdapter;
             this.tableAdapterManager.ФакультетTableAdapter = null;
-            // 
-            // год_поступленияLabel
-            // 
-            год_поступленияLabel.AutoSize = true;
-            год_поступленияLabel.Location = new System.Drawing.Point(12, 259);
-            год_поступленияLabel.Name = "год_поступленияLabel";
-            год_поступленияLabel.Size = new System.Drawing.Size(143, 20);
-            год_поступленияLabel.TabIndex = 19;
-            год_поступленияLabel.Text = "Год поступления:";
             // 
             // год_поступленияComboBox
             // 
@@ -440,9 +440,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.студентыBindingNavigator)).EndInit();
             this.студентыBindingNavigator.ResumeLayout(false);
             this.студентыBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.фотографияPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.фотографияPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
