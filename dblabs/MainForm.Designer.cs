@@ -44,6 +44,8 @@
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +56,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.requestsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 33);
@@ -161,6 +164,21 @@
             this.aboutToolStripMenuItem3.Size = new System.Drawing.Size(164, 34);
             this.aboutToolStripMenuItem3.Text = "About";
             // 
+            // requestsToolStripMenuItem
+            // 
+            this.requestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestsToolStripMenuItem1});
+            this.requestsToolStripMenuItem.Name = "requestsToolStripMenuItem";
+            this.requestsToolStripMenuItem.Size = new System.Drawing.Size(99, 29);
+            this.requestsToolStripMenuItem.Text = "Requests";
+            // 
+            // requestsToolStripMenuItem1
+            // 
+            this.requestsToolStripMenuItem1.Name = "requestsToolStripMenuItem1";
+            this.requestsToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.requestsToolStripMenuItem1.Text = "Requests";
+            this.requestsToolStripMenuItem1.Click += new System.EventHandler(this.requestsToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -199,6 +217,8 @@
         private System.Windows.Forms.ToolStripMenuItem disciplinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem learningDisciplinesByStudentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestsToolStripMenuItem1;
     }
 }
 

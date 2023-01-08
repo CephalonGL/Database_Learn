@@ -101,6 +101,22 @@ namespace dblabs
                 }
             }
         }
+        public static FormSQL _formSQL;
+        public static FormSQL formSQL
+        {
+            get
+            {
+                if (_formSQL is null
+                    || _formSQL.IsDisposed)
+                {
+                    return _formSQL = new FormSQL();
+                }
+                else
+                {
+                    return _formSQL;
+                }
+            }
+        }
 
         public MainForm()
         {
@@ -161,6 +177,11 @@ namespace dblabs
         private void facultyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FacultyForm.Show();
+        }
+
+        private void requestsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formSQL.Show();
         }
     }
 }

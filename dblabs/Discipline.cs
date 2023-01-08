@@ -12,16 +12,16 @@ namespace dblabs
 {
     public partial class Discipline : Form
     {
-        int idCurrent = -1;
-        public int ShowSelectForm(int idDiscipline, out decimal price)
-        {
-            idCurrent = idDiscipline;
-            ShowDialog();
-            price =
-           (decimal)((DataRowView)предметыBindingSource.Current)["цена_меню"];
-            return
-           (int)((DataRowView)предметыBindingSource.Current)["код_блюда"];
-        }
+        //int idCurrent = -1;
+        //public int ShowSelectForm(int idDiscipline, out decimal price)
+        //{
+        //    idCurrent = idDiscipline;
+        //    ShowDialog();
+        //    price =
+        //   (decimal)((DataRowView)предметыBindingSource.Current)["цена_меню"];
+        //    return
+        //   (int)((DataRowView)предметыBindingSource.Current)["код_блюда"];
+        //}
 
         public Discipline()
         {
@@ -38,7 +38,6 @@ namespace dblabs
 
         private void Discipline_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'facultyDataSet.Предметы' table. You can move, or remove it, as needed.
             this.предметыTableAdapter.Fill(this.facultyDataSet.Предметы);
 
         }
