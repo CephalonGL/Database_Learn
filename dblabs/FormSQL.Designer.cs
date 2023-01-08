@@ -196,9 +196,9 @@
             this.labelGoodAverageMark.AutoSize = true;
             this.labelGoodAverageMark.Location = new System.Drawing.Point(6, 68);
             this.labelGoodAverageMark.Name = "labelGoodAverageMark";
-            this.labelGoodAverageMark.Size = new System.Drawing.Size(258, 20);
+            this.labelGoodAverageMark.Size = new System.Drawing.Size(173, 20);
             this.labelGoodAverageMark.TabIndex = 7;
-            this.labelGoodAverageMark.Text = "Средний балл выше или равен 4";
+            this.labelGoodAverageMark.Text = "Средний балл ниже 3";
             // 
             // checkBoxGoodAverageMark
             // 
@@ -214,9 +214,9 @@
             this.labelSort.AutoSize = true;
             this.labelSort.Location = new System.Drawing.Point(6, 38);
             this.labelSort.Name = "labelSort";
-            this.labelSort.Size = new System.Drawing.Size(253, 20);
+            this.labelSort.Size = new System.Drawing.Size(278, 20);
             this.labelSort.TabIndex = 5;
-            this.labelSort.Text = "Сортировать по убыванию ФИО";
+            this.labelSort.Text = "Сортировать по возрастанию ФИО";
             // 
             // buttonFind
             // 

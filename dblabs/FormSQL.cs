@@ -89,18 +89,17 @@ namespace dblabs
             }
             string groupNumber = textBoxGroupNumber.Text;
             string sqlSelect =
-                "SELECT Студенты.ФИО " +
-                "AVG(CAST(Оценка AS INTEGER)) AS [Средний балл] " +
+                "SELECT Студенты.[Номер зачётной книжки], Студенты.ФИО, Студенты.[Номер группы] " +
                 "FROM Студенты, [Изучение предметов студентами] " +
-                "WHERE [Номер группы] = '580-2'";
-                //"GROUP BY [Номер зачётной книжки]";
+                "WHERE Студенты.[Номер группы] = '" + groupNumber + "' " +
+                "GROUP BY Студенты.[Номер зачётной книжки], Студенты.ФИО, Студенты.[Номер группы] ";
             if (checkBoxGoodAverageMark.Checked)
             {
-                sqlSelect += " HAVING AVG(DISTINCT [Изучение предметов студентами].Оценка) >= 4";
+                sqlSelect += " HAVING AVG([Изучение предметов студентами].Оценка) < 3";
             }
             if (checkBoxDescendingNameSort.Checked)
             {
-                sqlSelect += " ORDER BY ФИО DESC";
+                sqlSelect += " ORDER BY Студенты.ФИО";
             }
             //sqlSelect += " GROUP BY [Номер зачётной книжки]";
             dataGridViewFullSelect.DataSource = FillDataGridView(sqlSelect);
