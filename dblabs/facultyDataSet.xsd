@@ -59,7 +59,6 @@ SELECT [Номер группы], [Название факультета], [На
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Номер группы" DataSetColumn="Номер группы" />
-              <Mapping SourceColumn="Название факультета" DataSetColumn="Название факультета" />
               <Mapping SourceColumn="Название кафедры" DataSetColumn="Название кафедры" />
               <Mapping SourceColumn="Код специальности" DataSetColumn="Код специальности" />
             </Mappings>
@@ -313,31 +312,69 @@ SELECT [Название факультета], [ФИО декана] FROM Фа�
   <xs:element name="facultyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="facultyDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="facultyDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Группы" msprop:Generator_RowClassName="ГруппыRow" msprop:Generator_RowEvHandlerName="ГруппыRowChangeEventHandler" msprop:Generator_RowDeletedName="ГруппыRowDeleted" msprop:Generator_RowDeletingName="ГруппыRowDeleting" msprop:Generator_RowEvArgName="ГруппыRowChangeEvent" msprop:Generator_TablePropName="Группы" msprop:Generator_RowChangedName="ГруппыRowChanged" msprop:Generator_UserTableName="Группы" msprop:Generator_RowChangingName="ГруппыRowChanging" msprop:Generator_TableClassName="ГруппыDataTable" msprop:Generator_TableVarName="tableГруппы">
+        <xs:element name="Группы" msprop:Generator_RowEvHandlerName="ГруппыRowChangeEventHandler" msprop:Generator_RowDeletedName="ГруппыRowDeleted" msprop:Generator_RowDeletingName="ГруппыRowDeleting" msprop:Generator_RowEvArgName="ГруппыRowChangeEvent" msprop:Generator_TablePropName="Группы" msprop:Generator_RowChangedName="ГруппыRowChanged" msprop:Generator_UserTableName="Группы" msprop:Generator_RowChangingName="ГруппыRowChanging" msprop:Generator_RowClassName="ГруппыRow" msprop:Generator_TableClassName="ГруппыDataTable" msprop:Generator_TableVarName="tableГруппы">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_группы" msprop:Generator_UserColumnName="Номер группы" msprop:Generator_ColumnPropNameInTable="Номер_группыColumn" msprop:Generator_ColumnPropNameInRow="Номер_группы" msprop:Generator_ColumnVarNameInTable="columnНомер_группы">
+              <xs:element name="Номер_x0020_группы" msprop:Generator_ColumnPropNameInTable="Номер_группыColumn" msprop:Generator_ColumnPropNameInRow="Номер_группы" msprop:Generator_UserColumnName="Номер группы" msprop:Generator_ColumnVarNameInTable="columnНомер_группы">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Название_x0020_факультета" msprop:Generator_UserColumnName="Название факультета" msprop:Generator_ColumnPropNameInTable="Название_факультетаColumn" msprop:Generator_ColumnPropNameInRow="Название_факультета" msprop:Generator_ColumnVarNameInTable="columnНазвание_факультета">
+              <xs:element name="Название_x0020_факультета" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="Название_факультетаColumn" msprop:Generator_ColumnPropNameInRow="Название_факультета" msprop:Generator_UserColumnName="Название факультета" msprop:Generator_ColumnVarNameInTable="columnНазвание_факультета">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Название_x0020_кафедры" msprop:Generator_UserColumnName="Название кафедры" msprop:Generator_ColumnPropNameInTable="Название_кафедрыColumn" msprop:Generator_ColumnPropNameInRow="Название_кафедры" msprop:Generator_ColumnVarNameInTable="columnНазвание_кафедры">
+              <xs:element name="Название_x0020_кафедры" msprop:Generator_ColumnPropNameInTable="Название_кафедрыColumn" msprop:Generator_ColumnPropNameInRow="Название_кафедры" msprop:Generator_UserColumnName="Название кафедры" msprop:Generator_ColumnVarNameInTable="columnНазвание_кафедры">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Код_x0020_специальности" msprop:Generator_UserColumnName="Код специальности" msprop:Generator_ColumnPropNameInTable="Код_специальностиColumn" msprop:Generator_ColumnPropNameInRow="Код_специальности" msprop:Generator_ColumnVarNameInTable="columnКод_специальности">
+              <xs:element name="Код_x0020_специальности" msprop:Generator_ColumnPropNameInTable="Код_специальностиColumn" msprop:Generator_ColumnPropNameInRow="Код_специальности" msprop:Generator_UserColumnName="Код специальности" msprop:Generator_ColumnVarNameInTable="columnКод_специальности">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ФИО_x0020_декана" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Группы_Факультет).[ФИО декана]" msprop:Generator_ColumnPropNameInRow="ФИО_декана" msprop:Generator_ColumnPropNameInTable="ФИО_деканаColumn" msprop:Generator_ColumnVarNameInTable="columnФИО_декана" msprop:Generator_UserColumnName="ФИО декана" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Изучение_x0020_предметов_x0020_студентами" msprop:Generator_RowEvHandlerName="Изучение_предметов_студентамиRowChangeEventHandler" msprop:Generator_RowDeletedName="Изучение_предметов_студентамиRowDeleted" msprop:Generator_RowDeletingName="Изучение_предметов_студентамиRowDeleting" msprop:Generator_RowEvArgName="Изучение_предметов_студентамиRowChangeEvent" msprop:Generator_TablePropName="Изучение_предметов_студентами" msprop:Generator_RowChangedName="Изучение_предметов_студентамиRowChanged" msprop:Generator_UserTableName="Изучение предметов студентами" msprop:Generator_RowChangingName="Изучение_предметов_студентамиRowChanging" msprop:Generator_RowClassName="Изучение_предметов_студентамиRow" msprop:Generator_TableClassName="Изучение_предметов_студентамиDataTable" msprop:Generator_TableVarName="tableИзучение_предметов_студентами">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Номер_x0020_зачётной_x0020_книжки" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInTable="Номер_зачётной_книжкиColumn" msprop:Generator_ColumnPropNameInRow="Номер_зачётной_книжки" msprop:Generator_UserColumnName="Номер зачётной книжки" msprop:Generator_ColumnVarNameInTable="columnНомер_зачётной_книжки" type="xs:string" />
+              <xs:element name="Название_x0020_предмета" msprop:Generator_ColumnPropNameInTable="Название_предметаColumn" msprop:Generator_ColumnPropNameInRow="Название_предмета" msprop:Generator_UserColumnName="Название предмета" msprop:Generator_ColumnVarNameInTable="columnНазвание_предмета">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Оценка" msprop:Generator_ColumnPropNameInTable="ОценкаColumn" msprop:Generator_ColumnPropNameInRow="Оценка" msprop:Generator_UserColumnName="Оценка" msprop:Generator_ColumnVarNameInTable="columnОценка" type="xs:int" />
+              <xs:element name="Своевременная_x0020_сдача" msprop:Generator_ColumnPropNameInTable="Своевременная_сдачаColumn" msprop:Generator_ColumnPropNameInRow="Своевременная_сдача" msprop:Generator_UserColumnName="Своевременная сдача" msprop:Generator_ColumnVarNameInTable="columnСвоевременная_сдача" type="xs:boolean" />
+              <xs:element name="Перезачёт" msprop:Generator_ColumnPropNameInTable="ПерезачётColumn" msprop:Generator_ColumnPropNameInRow="Перезачёт" msprop:Generator_UserColumnName="Перезачёт" msprop:Generator_ColumnVarNameInTable="columnПерезачёт" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Предметы" msprop:Generator_RowEvHandlerName="ПредметыRowChangeEventHandler" msprop:Generator_RowDeletedName="ПредметыRowDeleted" msprop:Generator_RowDeletingName="ПредметыRowDeleting" msprop:Generator_RowEvArgName="ПредметыRowChangeEvent" msprop:Generator_TablePropName="Предметы" msprop:Generator_RowChangedName="ПредметыRowChanged" msprop:Generator_UserTableName="Предметы" msprop:Generator_RowChangingName="ПредметыRowChanging" msprop:Generator_RowClassName="ПредметыRow" msprop:Generator_TableClassName="ПредметыDataTable" msprop:Generator_TableVarName="tableПредметы">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Название_x0020_предмета" msprop:Generator_ColumnPropNameInTable="Название_предметаColumn" msprop:Generator_ColumnPropNameInRow="Название_предмета" msprop:Generator_UserColumnName="Название предмета" msprop:Generator_ColumnVarNameInTable="columnНазвание_предмета">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ФИО_x0020_преподавателя" msprop:Generator_ColumnPropNameInTable="ФИО_преподавателяColumn" msprop:Generator_ColumnPropNameInRow="ФИО_преподавателя" msprop:Generator_UserColumnName="ФИО преподавателя" msprop:Generator_ColumnVarNameInTable="columnФИО_преподавателя">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -347,93 +384,57 @@ SELECT [Название факультета], [ФИО декана] FROM Фа�
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Изучение_x0020_предметов_x0020_студентами" msprop:Generator_RowClassName="Изучение_предметов_студентамиRow" msprop:Generator_RowEvHandlerName="Изучение_предметов_студентамиRowChangeEventHandler" msprop:Generator_RowDeletedName="Изучение_предметов_студентамиRowDeleted" msprop:Generator_RowDeletingName="Изучение_предметов_студентамиRowDeleting" msprop:Generator_RowEvArgName="Изучение_предметов_студентамиRowChangeEvent" msprop:Generator_TablePropName="Изучение_предметов_студентами" msprop:Generator_RowChangedName="Изучение_предметов_студентамиRowChanged" msprop:Generator_UserTableName="Изучение предметов студентами" msprop:Generator_RowChangingName="Изучение_предметов_студентамиRowChanging" msprop:Generator_TableClassName="Изучение_предметов_студентамиDataTable" msprop:Generator_TableVarName="tableИзучение_предметов_студентами">
+        <xs:element name="Студенты" msprop:Generator_RowEvHandlerName="СтудентыRowChangeEventHandler" msprop:Generator_RowDeletedName="СтудентыRowDeleted" msprop:Generator_RowDeletingName="СтудентыRowDeleting" msprop:Generator_RowEvArgName="СтудентыRowChangeEvent" msprop:Generator_TablePropName="Студенты" msprop:Generator_RowChangedName="СтудентыRowChanged" msprop:Generator_UserTableName="Студенты" msprop:Generator_RowChangingName="СтудентыRowChanging" msprop:Generator_RowClassName="СтудентыRow" msprop:Generator_TableClassName="СтудентыDataTable" msprop:Generator_TableVarName="tableСтуденты">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_зачётной_x0020_книжки" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="Номер зачётной книжки" msprop:Generator_ColumnPropNameInTable="Номер_зачётной_книжкиColumn" msprop:Generator_ColumnPropNameInRow="Номер_зачётной_книжки" msprop:Generator_ColumnVarNameInTable="columnНомер_зачётной_книжки" type="xs:string" />
-              <xs:element name="Название_x0020_предмета" msprop:Generator_UserColumnName="Название предмета" msprop:Generator_ColumnPropNameInTable="Название_предметаColumn" msprop:Generator_ColumnPropNameInRow="Название_предмета" msprop:Generator_ColumnVarNameInTable="columnНазвание_предмета">
+              <xs:element name="Номер_x0020_зачётной_x0020_книжки" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInTable="Номер_зачётной_книжкиColumn" msprop:Generator_ColumnPropNameInRow="Номер_зачётной_книжки" msprop:Generator_UserColumnName="Номер зачётной книжки" msprop:Generator_ColumnVarNameInTable="columnНомер_зачётной_книжки" type="xs:string" />
+              <xs:element name="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Оценка" msprop:Generator_UserColumnName="Оценка" msprop:Generator_ColumnPropNameInTable="ОценкаColumn" msprop:Generator_ColumnPropNameInRow="Оценка" msprop:Generator_ColumnVarNameInTable="columnОценка" type="xs:int" />
-              <xs:element name="Своевременная_x0020_сдача" msprop:Generator_UserColumnName="Своевременная сдача" msprop:Generator_ColumnPropNameInTable="Своевременная_сдачаColumn" msprop:Generator_ColumnPropNameInRow="Своевременная_сдача" msprop:Generator_ColumnVarNameInTable="columnСвоевременная_сдача" type="xs:boolean" />
-              <xs:element name="Перезачёт" msprop:Generator_UserColumnName="Перезачёт" msprop:Generator_ColumnPropNameInTable="ПерезачётColumn" msprop:Generator_ColumnPropNameInRow="Перезачёт" msprop:Generator_ColumnVarNameInTable="columnПерезачёт" type="xs:boolean" />
+              <xs:element name="Номер_x0020_группы" msprop:Generator_ColumnPropNameInTable="Номер_группыColumn" msprop:Generator_ColumnPropNameInRow="Номер_группы" msprop:Generator_UserColumnName="Номер группы" msprop:Generator_ColumnVarNameInTable="columnНомер_группы">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Серия_x0020_и_x0020_номер_x0020_паспорта" msprop:Generator_ColumnPropNameInTable="Серия_и_номер_паспортаColumn" msprop:Generator_ColumnPropNameInRow="Серия_и_номер_паспорта" msprop:Generator_UserColumnName="Серия и номер паспорта" msprop:Generator_ColumnVarNameInTable="columnСерия_и_номер_паспорта" type="xs:int" />
+              <xs:element name="Дата_x0020_рождения" msprop:Generator_ColumnPropNameInTable="Дата_рожденияColumn" msprop:Generator_ColumnPropNameInRow="Дата_рождения" msprop:Generator_UserColumnName="Дата рождения" msprop:Generator_ColumnVarNameInTable="columnДата_рождения" type="xs:dateTime" />
+              <xs:element name="Адрес_x0020_прописки" msprop:Generator_ColumnPropNameInTable="Адрес_пропискиColumn" msprop:Generator_ColumnPropNameInRow="Адрес_прописки" msprop:Generator_UserColumnName="Адрес прописки" msprop:Generator_ColumnVarNameInTable="columnАдрес_прописки">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Фактический_x0020_адрес_x0020_проживания" msprop:Generator_ColumnPropNameInTable="Фактический_адрес_проживанияColumn" msprop:Generator_ColumnPropNameInRow="Фактический_адрес_проживания" msprop:Generator_UserColumnName="Фактический адрес проживания" msprop:Generator_ColumnVarNameInTable="columnФактический_адрес_проживания">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Год_x0020_поступления" msprop:Generator_ColumnPropNameInTable="Год_поступленияColumn" msprop:Generator_ColumnPropNameInRow="Год_поступления" msprop:Generator_UserColumnName="Год поступления" msprop:Generator_ColumnVarNameInTable="columnГод_поступления" type="xs:int" />
+              <xs:element name="Фотография" msprop:Generator_ColumnPropNameInTable="ФотографияColumn" msprop:Generator_ColumnPropNameInRow="Фотография" msprop:Generator_UserColumnName="Фотография" msprop:Generator_ColumnVarNameInTable="columnФотография" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Проживает_x0020_по_x0020_прописке" msdata:ReadOnly="true" msdata:Expression="[Адрес прописки]=[Фактический адрес проживания]" msprop:Generator_ColumnPropNameInRow="Проживает_по_прописке" msprop:Generator_ColumnPropNameInTable="Проживает_по_пропискеColumn" msprop:Generator_ColumnVarNameInTable="columnПроживает_по_прописке" msprop:Generator_UserColumnName="Проживает по прописке" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Предметы" msprop:Generator_RowClassName="ПредметыRow" msprop:Generator_RowEvHandlerName="ПредметыRowChangeEventHandler" msprop:Generator_RowDeletedName="ПредметыRowDeleted" msprop:Generator_RowDeletingName="ПредметыRowDeleting" msprop:Generator_RowEvArgName="ПредметыRowChangeEvent" msprop:Generator_TablePropName="Предметы" msprop:Generator_RowChangedName="ПредметыRowChanged" msprop:Generator_UserTableName="Предметы" msprop:Generator_RowChangingName="ПредметыRowChanging" msprop:Generator_TableClassName="ПредметыDataTable" msprop:Generator_TableVarName="tableПредметы">
+        <xs:element name="Факультет" msprop:Generator_RowEvHandlerName="ФакультетRowChangeEventHandler" msprop:Generator_RowDeletedName="ФакультетRowDeleted" msprop:Generator_RowDeletingName="ФакультетRowDeleting" msprop:Generator_RowEvArgName="ФакультетRowChangeEvent" msprop:Generator_TablePropName="Факультет" msprop:Generator_RowChangedName="ФакультетRowChanged" msprop:Generator_UserTableName="Факультет" msprop:Generator_RowChangingName="ФакультетRowChanging" msprop:Generator_RowClassName="ФакультетRow" msprop:Generator_TableClassName="ФакультетDataTable" msprop:Generator_TableVarName="tableФакультет">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Название_x0020_предмета" msprop:Generator_UserColumnName="Название предмета" msprop:Generator_ColumnPropNameInTable="Название_предметаColumn" msprop:Generator_ColumnPropNameInRow="Название_предмета" msprop:Generator_ColumnVarNameInTable="columnНазвание_предмета">
+              <xs:element name="Название_x0020_факультета" msprop:Generator_ColumnPropNameInTable="Название_факультетаColumn" msprop:Generator_ColumnPropNameInRow="Название_факультета" msprop:Generator_UserColumnName="Название факультета" msprop:Generator_ColumnVarNameInTable="columnНазвание_факультета">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ФИО_x0020_преподавателя" msprop:Generator_UserColumnName="ФИО преподавателя" msprop:Generator_ColumnPropNameInTable="ФИО_преподавателяColumn" msprop:Generator_ColumnPropNameInRow="ФИО_преподавателя" msprop:Generator_ColumnVarNameInTable="columnФИО_преподавателя">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Студенты" msprop:Generator_RowClassName="СтудентыRow" msprop:Generator_RowEvHandlerName="СтудентыRowChangeEventHandler" msprop:Generator_RowDeletedName="СтудентыRowDeleted" msprop:Generator_RowDeletingName="СтудентыRowDeleting" msprop:Generator_RowEvArgName="СтудентыRowChangeEvent" msprop:Generator_TablePropName="Студенты" msprop:Generator_RowChangedName="СтудентыRowChanged" msprop:Generator_UserTableName="Студенты" msprop:Generator_RowChangingName="СтудентыRowChanging" msprop:Generator_TableClassName="СтудентыDataTable" msprop:Generator_TableVarName="tableСтуденты">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Номер_x0020_зачётной_x0020_книжки" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="Номер зачётной книжки" msprop:Generator_ColumnPropNameInTable="Номер_зачётной_книжкиColumn" msprop:Generator_ColumnPropNameInRow="Номер_зачётной_книжки" msprop:Generator_ColumnVarNameInTable="columnНомер_зачётной_книжки" type="xs:string" />
-              <xs:element name="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Номер_x0020_группы" msprop:Generator_UserColumnName="Номер группы" msprop:Generator_ColumnPropNameInTable="Номер_группыColumn" msprop:Generator_ColumnPropNameInRow="Номер_группы" msprop:Generator_ColumnVarNameInTable="columnНомер_группы">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Серия_x0020_и_x0020_номер_x0020_паспорта" msprop:Generator_UserColumnName="Серия и номер паспорта" msprop:Generator_ColumnPropNameInTable="Серия_и_номер_паспортаColumn" msprop:Generator_ColumnPropNameInRow="Серия_и_номер_паспорта" msprop:Generator_ColumnVarNameInTable="columnСерия_и_номер_паспорта" type="xs:int" />
-              <xs:element name="Дата_x0020_рождения" msprop:Generator_UserColumnName="Дата рождения" msprop:Generator_ColumnPropNameInTable="Дата_рожденияColumn" msprop:Generator_ColumnPropNameInRow="Дата_рождения" msprop:Generator_ColumnVarNameInTable="columnДата_рождения" type="xs:dateTime" />
-              <xs:element name="Адрес_x0020_прописки" msprop:Generator_UserColumnName="Адрес прописки" msprop:Generator_ColumnPropNameInTable="Адрес_пропискиColumn" msprop:Generator_ColumnPropNameInRow="Адрес_прописки" msprop:Generator_ColumnVarNameInTable="columnАдрес_прописки">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Фактический_x0020_адрес_x0020_проживания" msprop:Generator_UserColumnName="Фактический адрес проживания" msprop:Generator_ColumnPropNameInTable="Фактический_адрес_проживанияColumn" msprop:Generator_ColumnPropNameInRow="Фактический_адрес_проживания" msprop:Generator_ColumnVarNameInTable="columnФактический_адрес_проживания">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Год_x0020_поступления" msprop:Generator_UserColumnName="Год поступления" msprop:Generator_ColumnPropNameInTable="Год_поступленияColumn" msprop:Generator_ColumnPropNameInRow="Год_поступления" msprop:Generator_ColumnVarNameInTable="columnГод_поступления" type="xs:int" />
-              <xs:element name="Фотография" msprop:Generator_UserColumnName="Фотография" msprop:Generator_ColumnPropNameInTable="ФотографияColumn" msprop:Generator_ColumnPropNameInRow="Фотография" msprop:Generator_ColumnVarNameInTable="columnФотография" type="xs:base64Binary" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Факультет" msprop:Generator_RowClassName="ФакультетRow" msprop:Generator_RowEvHandlerName="ФакультетRowChangeEventHandler" msprop:Generator_RowDeletedName="ФакультетRowDeleted" msprop:Generator_RowDeletingName="ФакультетRowDeleting" msprop:Generator_RowEvArgName="ФакультетRowChangeEvent" msprop:Generator_TablePropName="Факультет" msprop:Generator_RowChangedName="ФакультетRowChanged" msprop:Generator_UserTableName="Факультет" msprop:Generator_RowChangingName="ФакультетRowChanging" msprop:Generator_TableClassName="ФакультетDataTable" msprop:Generator_TableVarName="tableФакультет">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Название_x0020_факультета" msprop:Generator_UserColumnName="Название факультета" msprop:Generator_ColumnPropNameInTable="Название_факультетаColumn" msprop:Generator_ColumnPropNameInRow="Название_факультета" msprop:Generator_ColumnVarNameInTable="columnНазвание_факультета">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ФИО_x0020_декана" msprop:Generator_UserColumnName="ФИО декана" msprop:Generator_ColumnPropNameInTable="ФИО_деканаColumn" msprop:Generator_ColumnPropNameInRow="ФИО_декана" msprop:Generator_ColumnVarNameInTable="columnФИО_декана">
+              <xs:element name="ФИО_x0020_декана" msprop:Generator_ColumnPropNameInTable="ФИО_деканаColumn" msprop:Generator_ColumnPropNameInRow="ФИО_декана" msprop:Generator_UserColumnName="ФИО декана" msprop:Generator_ColumnVarNameInTable="columnФИО_декана">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -469,10 +470,10 @@ SELECT [Название факультета], [ФИО декана] FROM Фа�
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Группы_Факультет" msdata:parent="Факультет" msdata:child="Группы" msdata:parentkey="Название_x0020_факультета" msdata:childkey="Название_x0020_факультета" msprop:Generator_UserParentTable="Факультет" msprop:Generator_UserChildTable="Группы" msprop:Generator_RelationVarName="relationFK_Группы_Факультет" msprop:Generator_ChildPropName="GetГруппыRows" msprop:Generator_ParentPropName="ФакультетRow" msprop:Generator_UserRelationName="FK_Группы_Факультет" />
-      <msdata:Relationship name="FK_Изучение_x0020_предметов_x0020_студентами_Предметы" msdata:parent="Предметы" msdata:child="Изучение_x0020_предметов_x0020_студентами" msdata:parentkey="Название_x0020_предмета" msdata:childkey="Название_x0020_предмета" msprop:Generator_UserParentTable="Предметы" msprop:Generator_UserChildTable="Изучение предметов студентами" msprop:Generator_RelationVarName="relationFK_Изучение_предметов_студентами_Предметы" msprop:Generator_ChildPropName="GetИзучение_предметов_студентамиRows" msprop:Generator_ParentPropName="ПредметыRow" msprop:Generator_UserRelationName="FK_Изучение предметов студентами_Предметы" />
-      <msdata:Relationship name="FK_Изучение_x0020_предметов_x0020_студентами_Студенты" msdata:parent="Студенты" msdata:child="Изучение_x0020_предметов_x0020_студентами" msdata:parentkey="Номер_x0020_зачётной_x0020_книжки" msdata:childkey="Номер_x0020_зачётной_x0020_книжки" msprop:Generator_UserParentTable="Студенты" msprop:Generator_UserChildTable="Изучение предметов студентами" msprop:Generator_RelationVarName="relationFK_Изучение_предметов_студентами_Студенты" msprop:Generator_ChildPropName="GetИзучение_предметов_студентамиRows" msprop:Generator_ParentPropName="СтудентыRow" msprop:Generator_UserRelationName="FK_Изучение предметов студентами_Студенты" />
-      <msdata:Relationship name="FK_Студенты_Группы" msdata:parent="Группы" msdata:child="Студенты" msdata:parentkey="Номер_x0020_группы" msdata:childkey="Номер_x0020_группы" msprop:Generator_UserParentTable="Группы" msprop:Generator_UserChildTable="Студенты" msprop:Generator_RelationVarName="relationFK_Студенты_Группы" msprop:Generator_ChildPropName="GetСтудентыRows" msprop:Generator_UserRelationName="FK_Студенты_Группы" msprop:Generator_ParentPropName="ГруппыRow" />
+      <msdata:Relationship name="FK_Группы_Факультет" msdata:parent="Факультет" msdata:child="Группы" msdata:parentkey="Название_x0020_факультета" msdata:childkey="Название_x0020_факультета" msprop:Generator_UserParentTable="Факультет" msprop:Generator_UserChildTable="Группы" msprop:Generator_RelationVarName="relationFK_Группы_Факультет" msprop:Generator_ChildPropName="GetГруппыRows" msprop:Generator_UserRelationName="FK_Группы_Факультет" msprop:Generator_ParentPropName="ФакультетRow" />
+      <msdata:Relationship name="FK_Изучение_x0020_предметов_x0020_студентами_Предметы" msdata:parent="Предметы" msdata:child="Изучение_x0020_предметов_x0020_студентами" msdata:parentkey="Название_x0020_предмета" msdata:childkey="Название_x0020_предмета" msprop:Generator_UserParentTable="Предметы" msprop:Generator_UserChildTable="Изучение предметов студентами" msprop:Generator_RelationVarName="relationFK_Изучение_предметов_студентами_Предметы" msprop:Generator_ChildPropName="GetИзучение_предметов_студентамиRows" msprop:Generator_UserRelationName="FK_Изучение предметов студентами_Предметы" msprop:Generator_ParentPropName="ПредметыRow" />
+      <msdata:Relationship name="FK_Изучение_x0020_предметов_x0020_студентами_Студенты" msdata:parent="Студенты" msdata:child="Изучение_x0020_предметов_x0020_студентами" msdata:parentkey="Номер_x0020_зачётной_x0020_книжки" msdata:childkey="Номер_x0020_зачётной_x0020_книжки" msprop:Generator_UserParentTable="Студенты" msprop:Generator_UserChildTable="Изучение предметов студентами" msprop:Generator_RelationVarName="relationFK_Изучение_предметов_студентами_Студенты" msprop:Generator_ChildPropName="GetИзучение_предметов_студентамиRows" msprop:Generator_UserRelationName="FK_Изучение предметов студентами_Студенты" msprop:Generator_ParentPropName="СтудентыRow" />
+      <msdata:Relationship name="FK_Студенты_Группы" msdata:parent="Группы" msdata:child="Студенты" msdata:parentkey="Номер_x0020_группы" msdata:childkey="Номер_x0020_группы" msprop:Generator_UserParentTable="Группы" msprop:Generator_UserChildTable="Студенты" msprop:Generator_RelationVarName="relationFK_Студенты_Группы" msprop:Generator_ChildPropName="GetСтудентыRows" msprop:Generator_ParentPropName="ГруппыRow" msprop:Generator_UserRelationName="FK_Студенты_Группы" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

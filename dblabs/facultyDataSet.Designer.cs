@@ -53,6 +53,7 @@ namespace dblabs {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -64,6 +65,9 @@ namespace dblabs {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -96,6 +100,7 @@ namespace dblabs {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -197,6 +202,7 @@ namespace dblabs {
         public override global::System.Data.DataSet Clone() {
             facultyDataSet cln = ((facultyDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -312,13 +318,13 @@ namespace dblabs {
             this.Namespace = "http://tempuri.org/facultyDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableГруппы = new ГруппыDataTable();
+            this.tableГруппы = new ГруппыDataTable(false);
             base.Tables.Add(this.tableГруппы);
             this.tableИзучение_предметов_студентами = new Изучение_предметов_студентамиDataTable();
             base.Tables.Add(this.tableИзучение_предметов_студентами);
             this.tableПредметы = new ПредметыDataTable();
             base.Tables.Add(this.tableПредметы);
-            this.tableСтуденты = new СтудентыDataTable();
+            this.tableСтуденты = new СтудентыDataTable(false);
             base.Tables.Add(this.tableСтуденты);
             this.tableФакультет = new ФакультетDataTable();
             base.Tables.Add(this.tableФакультет);
@@ -425,6 +431,13 @@ namespace dblabs {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this.Группы.ФИО_деканаColumn.Expression = "Parent(FK_Группы_Факультет).[ФИО декана]";
+            this.Студенты.Проживает_по_пропискеColumn.Expression = "[Адрес прописки]=[Фактический адрес проживания]";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ГруппыRowChangeEventHandler(object sender, ГруппыRowChangeEvent e);
         
@@ -455,12 +468,23 @@ namespace dblabs {
             
             private global::System.Data.DataColumn columnКод_специальности;
             
+            private global::System.Data.DataColumn columnФИО_декана;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ГруппыDataTable() {
+            public ГруппыDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ГруппыDataTable(bool initExpressions) {
                 this.TableName = "Группы";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -522,6 +546,14 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ФИО_деканаColumn {
+                get {
+                    return this.columnФИО_декана;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -557,13 +589,32 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ГруппыRow AddГруппыRow(string Номер_группы, ФакультетRow parentФакультетRowByFK_Группы_Факультет, string Название_кафедры, string Код_специальности, string ФИО_декана) {
+                ГруппыRow rowГруппыRow = ((ГруппыRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Номер_группы,
+                        null,
+                        Название_кафедры,
+                        Код_специальности,
+                        ФИО_декана};
+                if ((parentФакультетRowByFK_Группы_Факультет != null)) {
+                    columnValuesArray[1] = parentФакультетRowByFK_Группы_Факультет[0];
+                }
+                rowГруппыRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowГруппыRow);
+                return rowГруппыRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ГруппыRow AddГруппыRow(string Номер_группы, ФакультетRow parentФакультетRowByFK_Группы_Факультет, string Название_кафедры, string Код_специальности) {
                 ГруппыRow rowГруппыRow = ((ГруппыRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Номер_группы,
                         null,
                         Название_кафедры,
-                        Код_специальности};
+                        Код_специальности,
+                        null};
                 if ((parentФакультетRowByFK_Группы_Факультет != null)) {
                     columnValuesArray[1] = parentФакультетRowByFK_Группы_Факультет[0];
                 }
@@ -600,6 +651,7 @@ namespace dblabs {
                 this.columnНазвание_факультета = base.Columns["Название факультета"];
                 this.columnНазвание_кафедры = base.Columns["Название кафедры"];
                 this.columnКод_специальности = base.Columns["Код специальности"];
+                this.columnФИО_декана = base.Columns["ФИО декана"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -613,17 +665,21 @@ namespace dblabs {
                 base.Columns.Add(this.columnНазвание_кафедры);
                 this.columnКод_специальности = new global::System.Data.DataColumn("Код специальности", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКод_специальности);
+                this.columnФИО_декана = new global::System.Data.DataColumn("ФИО декана", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnФИО_декана);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомер_группы}, true));
                 this.columnНомер_группы.AllowDBNull = false;
                 this.columnНомер_группы.Unique = true;
                 this.columnНомер_группы.MaxLength = 100;
                 this.columnНазвание_факультета.AllowDBNull = false;
+                this.columnНазвание_факультета.ReadOnly = true;
                 this.columnНазвание_факультета.MaxLength = 100;
                 this.columnНазвание_кафедры.AllowDBNull = false;
                 this.columnНазвание_кафедры.MaxLength = 100;
                 this.columnКод_специальности.AllowDBNull = false;
                 this.columnКод_специальности.MaxLength = 100;
+                this.columnФИО_декана.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -642,6 +698,12 @@ namespace dblabs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ГруппыRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.ФИО_деканаColumn.Expression = "Parent(FK_Группы_Факультет).[ФИО декана]";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1376,12 +1438,23 @@ namespace dblabs {
             
             private global::System.Data.DataColumn columnФотография;
             
+            private global::System.Data.DataColumn columnПроживает_по_прописке;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public СтудентыDataTable() {
+            public СтудентыDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public СтудентыDataTable(bool initExpressions) {
                 this.TableName = "Студенты";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1483,6 +1556,14 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Проживает_по_пропискеColumn {
+                get {
+                    return this.columnПроживает_по_прописке;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1518,6 +1599,29 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public СтудентыRow AddСтудентыRow(System.Guid Номер_зачётной_книжки, string ФИО, ГруппыRow parentГруппыRowByFK_Студенты_Группы, int Серия_и_номер_паспорта, System.DateTime Дата_рождения, string Адрес_прописки, string Фактический_адрес_проживания, int Год_поступления, byte[] Фотография, bool Проживает_по_прописке) {
+                СтудентыRow rowСтудентыRow = ((СтудентыRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Номер_зачётной_книжки,
+                        ФИО,
+                        null,
+                        Серия_и_номер_паспорта,
+                        Дата_рождения,
+                        Адрес_прописки,
+                        Фактический_адрес_проживания,
+                        Год_поступления,
+                        Фотография,
+                        Проживает_по_прописке};
+                if ((parentГруппыRowByFK_Студенты_Группы != null)) {
+                    columnValuesArray[2] = parentГруппыRowByFK_Студенты_Группы[0];
+                }
+                rowСтудентыRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowСтудентыRow);
+                return rowСтудентыRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public СтудентыRow AddСтудентыRow(System.Guid Номер_зачётной_книжки, string ФИО, ГруппыRow parentГруппыRowByFK_Студенты_Группы, int Серия_и_номер_паспорта, System.DateTime Дата_рождения, string Адрес_прописки, string Фактический_адрес_проживания, int Год_поступления, byte[] Фотография) {
                 СтудентыRow rowСтудентыRow = ((СтудентыRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1529,7 +1633,8 @@ namespace dblabs {
                         Адрес_прописки,
                         Фактический_адрес_проживания,
                         Год_поступления,
-                        Фотография};
+                        Фотография,
+                        null};
                 if ((parentГруппыRowByFK_Студенты_Группы != null)) {
                     columnValuesArray[2] = parentГруппыRowByFK_Студенты_Группы[0];
                 }
@@ -1571,6 +1676,7 @@ namespace dblabs {
                 this.columnФактический_адрес_проживания = base.Columns["Фактический адрес проживания"];
                 this.columnГод_поступления = base.Columns["Год поступления"];
                 this.columnФотография = base.Columns["Фотография"];
+                this.columnПроживает_по_прописке = base.Columns["Проживает по прописке"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1594,6 +1700,8 @@ namespace dblabs {
                 base.Columns.Add(this.columnГод_поступления);
                 this.columnФотография = new global::System.Data.DataColumn("Фотография", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnФотография);
+                this.columnПроживает_по_прописке = new global::System.Data.DataColumn("Проживает по прописке", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПроживает_по_прописке);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомер_зачётной_книжки}, true));
                 this.columnНомер_зачётной_книжки.AllowDBNull = false;
@@ -1609,6 +1717,7 @@ namespace dblabs {
                 this.columnФактический_адрес_проживания.AllowDBNull = false;
                 this.columnФактический_адрес_проживания.MaxLength = 100;
                 this.columnГод_поступления.AllowDBNull = false;
+                this.columnПроживает_по_прописке.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1627,6 +1736,12 @@ namespace dblabs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(СтудентыRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.Проживает_по_пропискеColumn.Expression = "[Адрес прописки]=[Фактический адрес проживания]";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2070,6 +2185,22 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ФИО_декана {
+                get {
+                    try {
+                        return ((string)(this[this.tableГруппы.ФИО_деканаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ФИО декана\' in table \'Группы\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableГруппы.ФИО_деканаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ФакультетRow ФакультетRow {
                 get {
                     return ((ФакультетRow)(this.GetParentRow(this.Table.ParentRelations["FK_Группы_Факультет"])));
@@ -2077,6 +2208,18 @@ namespace dblabs {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Группы_Факультет"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsФИО_деканаNull() {
+                return this.IsNull(this.tableГруппы.ФИО_деканаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetФИО_деканаNull() {
+                this[this.tableГруппы.ФИО_деканаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2351,6 +2494,22 @@ namespace dblabs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Проживает_по_прописке {
+                get {
+                    try {
+                        return ((bool)(this[this.tableСтуденты.Проживает_по_пропискеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Проживает по прописке\' in table \'Студенты\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСтуденты.Проживает_по_пропискеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ГруппыRow ГруппыRow {
                 get {
                     return ((ГруппыRow)(this.GetParentRow(this.Table.ParentRelations["FK_Студенты_Группы"])));
@@ -2370,6 +2529,18 @@ namespace dblabs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetФотографияNull() {
                 this[this.tableСтуденты.ФотографияColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsПроживает_по_пропискеNull() {
+                return this.IsNull(this.tableСтуденты.Проживает_по_пропискеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetПроживает_по_пропискеNull() {
+                this[this.tableСтуденты.Проживает_по_пропискеColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2728,7 +2899,6 @@ namespace dblabs.facultyDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Группы";
             tableMapping.ColumnMappings.Add("Номер группы", "Номер группы");
-            tableMapping.ColumnMappings.Add("Название факультета", "Название факультета");
             tableMapping.ColumnMappings.Add("Название кафедры", "Название кафедры");
             tableMapping.ColumnMappings.Add("Код специальности", "Код специальности");
             this._adapter.TableMappings.Add(tableMapping);
@@ -2804,7 +2974,7 @@ SELECT [Номер группы], [Название факультета], [На
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual facultyDataSet.ГруппыDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            facultyDataSet.ГруппыDataTable dataTable = new facultyDataSet.ГруппыDataTable();
+            facultyDataSet.ГруппыDataTable dataTable = new facultyDataSet.ГруппыDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3911,7 +4081,7 @@ SELECT [Номер зачётной книжки], ФИО, [Номер груп�
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual facultyDataSet.СтудентыDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            facultyDataSet.СтудентыDataTable dataTable = new facultyDataSet.СтудентыDataTable();
+            facultyDataSet.СтудентыDataTable dataTable = new facultyDataSet.СтудентыDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

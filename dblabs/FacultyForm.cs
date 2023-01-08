@@ -19,18 +19,24 @@ namespace dblabs
 
         private void факультетBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.факультетBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.facultyDataSet);
+            try
+            {
+                this.Validate();
+                this.факультетBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.facultyDataSet);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Ошибка", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
         }
 
         private void FacultyForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'facultyDataSet.Группы' table. You can move, or remove it, as needed.
             this.группыTableAdapter.Fill(this.facultyDataSet.Группы);
             this.факультетTableAdapter.Fill(this.facultyDataSet.Факультет);
-
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)

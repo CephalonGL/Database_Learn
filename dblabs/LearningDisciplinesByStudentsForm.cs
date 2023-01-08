@@ -27,7 +27,14 @@ namespace dblabs
 
         private void LearningDisciplinesByStudents_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'facultyDataSet.Студенты' table. You can move, or remove it, as needed.
+            this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
             this.изучение_предметов_студентамиTableAdapter.Fill(this.facultyDataSet.Изучение_предметов_студентами);
+        }
+
+        private void изучение_предметов_студентамиDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
