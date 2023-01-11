@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace dblabs
 {
@@ -17,11 +19,23 @@ namespace dblabs
             InitializeComponent();
         }
 
+        DataTable FillDataGridView(string sqlSelect)
+        {
+            SqlConnection connection = new
+                SqlConnection(Properties.Settings.Default.facultyConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = sqlSelect;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
         string GetSelectedFieldName()
         {
-            return
-           студентыDataGridView.Columns[студентыDataGridView.CurrentCell.ColumnIndex
-           ].DataPropertyName;
+            return студентыDataGridView.Columns[
+                студентыDataGridView.CurrentCell.ColumnIndex].DataPropertyName;
         }
 
         private void группыBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -34,7 +48,8 @@ namespace dblabs
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show("Ошибка сохранения. Проверьте правильность ввода.", 
+                    "Ошибка", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
 
@@ -42,6 +57,8 @@ namespace dblabs
 
         private void Groups_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'facultyDataSet.Факультет' table. You can move, or remove it, as needed.
+            this.факультетTableAdapter.Fill(this.facultyDataSet.Факультет);
             this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
             this.студентыTableAdapter.Fill(this.facultyDataSet.Студенты);
             this.группыTableAdapter.Fill(this.facultyDataSet.Группы);
@@ -56,7 +73,6 @@ namespace dblabs
 
         private void findToolStripButton_Click(object sender, EventArgs e)
         {
-
             if (findToolStripTextBox.Text == "")
             {
                 MessageBox.Show("Вы ничего не задали", "Внимание",
@@ -66,22 +82,15 @@ namespace dblabs
             int indexPos;
             try
             {
-                indexPos =
-               студентыBindingSource.Find(GetSelectedFieldName(),
-               findToolStripTextBox.Text);
+                студентыDataGridView.DataSource = FillDataGridView(
+                    "SELECT * " +
+                    "FROM Студенты " +
+                    "WHERE Студенты.[" + GetSelectedFieldName() + "] LIKE '" + findToolStripTextBox.Text + "'");
             }
             catch (Exception err)
             {
                 MessageBox.Show("Ошибка поиска \n" + err.Message);
                 return;
-            }
-            if (indexPos > -1)
-                студентыBindingSource.Position = indexPos;
-            else
-            {
-                MessageBox.Show("Таких сотрудников нет", "Внимание",
-               MessageBoxButtons.OK, MessageBoxIcon.Information);
-                студентыBindingSource.Position = 0;
             }
         }
 
@@ -96,7 +105,7 @@ namespace dblabs
                     try
                     {
                         студентыBindingSource.Filter =
-                       GetSelectedFieldName() + "='" + findToolStripTextBox.Text + "'";
+                       "[" + GetSelectedFieldName() + "] " + "='" + findToolStripTextBox.Text + "'";
                     }
                     catch (Exception err)
                     {

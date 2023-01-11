@@ -236,7 +236,6 @@
             this.checkBoxDescendingNameSort.Size = new System.Drawing.Size(22, 21);
             this.checkBoxDescendingNameSort.TabIndex = 3;
             this.checkBoxDescendingNameSort.UseVisualStyleBackColor = true;
-            this.checkBoxDescendingNameSort.CheckedChanged += new System.EventHandler(this.checkBoxDescendingNameSort_CheckedChanged);
             // 
             // textBoxGroupNumber
             // 
@@ -244,7 +243,6 @@
             this.textBoxGroupNumber.Name = "textBoxGroupNumber";
             this.textBoxGroupNumber.Size = new System.Drawing.Size(100, 26);
             this.textBoxGroupNumber.TabIndex = 2;
-            this.textBoxGroupNumber.Leave += new System.EventHandler(this.textBoxGroupNumber_Leave);
             // 
             // labelGroupNumber
             // 
@@ -367,7 +365,6 @@
             this.tabPageDML.TabIndex = 3;
             this.tabPageDML.Text = "Запросы изменения данных";
             this.tabPageDML.UseVisualStyleBackColor = true;
-            this.tabPageDML.Click += new System.EventHandler(this.tabPageDML_Click);
             // 
             // buttonDoQuery
             // 
@@ -410,7 +407,6 @@
             this.textBoxSourceDisciplineName.Name = "textBoxSourceDisciplineName";
             this.textBoxSourceDisciplineName.Size = new System.Drawing.Size(318, 26);
             this.textBoxSourceDisciplineName.TabIndex = 2;
-            this.textBoxSourceDisciplineName.TextChanged += new System.EventHandler(this.textBoxDisciplineName_TextChanged);
             // 
             // dataGridViewAED
             // 

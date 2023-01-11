@@ -34,7 +34,7 @@
             System.Windows.Forms.Label название_кафедрыLabel;
             System.Windows.Forms.Label код_специальностиLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupsForm));
-            System.Windows.Forms.Label фИО_деканаLabel;
+            System.Windows.Forms.Label фИО_деканаLabel1;
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -48,11 +48,26 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.группыBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.группыBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.группыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facultyDataSet = new dblabs.facultyDataSet();
             this.номер_группыTextBox = new System.Windows.Forms.TextBox();
             this.название_факультетаTextBox = new System.Windows.Forms.TextBox();
             this.название_кафедрыTextBox = new System.Windows.Forms.TextBox();
             this.код_специальностиTextBox = new System.Windows.Forms.TextBox();
             this.studentsGroupBox = new System.Windows.Forms.GroupBox();
+            this.студентыDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.студентыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.findCheckBox = new System.Windows.Forms.CheckBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -66,43 +81,31 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.студентыBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.findToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.findCheckBox = new System.Windows.Forms.CheckBox();
-            this.студентыDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.группыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facultyDataSet = new dblabs.facultyDataSet();
             this.группыTableAdapter = new dblabs.facultyDataSetTableAdapters.ГруппыTableAdapter();
             this.tableAdapterManager = new dblabs.facultyDataSetTableAdapters.TableAdapterManager();
             this.студентыTableAdapter = new dblabs.facultyDataSetTableAdapters.СтудентыTableAdapter();
-            this.фИО_деканаTextBox = new System.Windows.Forms.TextBox();
+            this.факультетBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.факультетTableAdapter = new dblabs.facultyDataSetTableAdapters.ФакультетTableAdapter();
+            this.фИО_деканаTextBox1 = new System.Windows.Forms.TextBox();
             номер_группыLabel = new System.Windows.Forms.Label();
             название_факультетаLabel = new System.Windows.Forms.Label();
             название_кафедрыLabel = new System.Windows.Forms.Label();
             код_специальностиLabel = new System.Windows.Forms.Label();
-            фИО_деканаLabel = new System.Windows.Forms.Label();
+            фИО_деканаLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.группыBindingNavigator)).BeginInit();
             this.группыBindingNavigator.SuspendLayout();
-            this.studentsGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.студентыDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.группыBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facultyDataSet)).BeginInit();
+            this.studentsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.студентыDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.факультетBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // номер_группыLabel
@@ -168,6 +171,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 31);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -262,16 +266,26 @@
             this.группыBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.группыBindingNavigator.Name = "группыBindingNavigator";
             this.группыBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.группыBindingNavigator.Size = new System.Drawing.Size(1547, 33);
+            this.группыBindingNavigator.Size = new System.Drawing.Size(1555, 33);
             this.группыBindingNavigator.TabIndex = 0;
             this.группыBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // группыBindingSource
+            // 
+            this.группыBindingSource.DataMember = "Группы";
+            this.группыBindingSource.DataSource = this.facultyDataSet;
+            // 
+            // facultyDataSet
+            // 
+            this.facultyDataSet.DataSetName = "facultyDataSet";
+            this.facultyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // номер_группыTextBox
             // 
             this.номер_группыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.группыBindingSource, "Номер группы", true));
             this.номер_группыTextBox.Location = new System.Drawing.Point(203, 30);
             this.номер_группыTextBox.Name = "номер_группыTextBox";
-            this.номер_группыTextBox.Size = new System.Drawing.Size(100, 26);
+            this.номер_группыTextBox.Size = new System.Drawing.Size(290, 26);
             this.номер_группыTextBox.TabIndex = 2;
             // 
             // название_факультетаTextBox
@@ -279,7 +293,7 @@
             this.название_факультетаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.группыBindingSource, "Название факультета", true));
             this.название_факультетаTextBox.Location = new System.Drawing.Point(203, 62);
             this.название_факультетаTextBox.Name = "название_факультетаTextBox";
-            this.название_факультетаTextBox.Size = new System.Drawing.Size(100, 26);
+            this.название_факультетаTextBox.Size = new System.Drawing.Size(290, 26);
             this.название_факультетаTextBox.TabIndex = 4;
             // 
             // название_кафедрыTextBox
@@ -287,7 +301,7 @@
             this.название_кафедрыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.группыBindingSource, "Название кафедры", true));
             this.название_кафедрыTextBox.Location = new System.Drawing.Point(203, 94);
             this.название_кафедрыTextBox.Name = "название_кафедрыTextBox";
-            this.название_кафедрыTextBox.Size = new System.Drawing.Size(100, 26);
+            this.название_кафедрыTextBox.Size = new System.Drawing.Size(290, 26);
             this.название_кафедрыTextBox.TabIndex = 6;
             // 
             // код_специальностиTextBox
@@ -295,7 +309,7 @@
             this.код_специальностиTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.группыBindingSource, "Код специальности", true));
             this.код_специальностиTextBox.Location = new System.Drawing.Point(203, 126);
             this.код_специальностиTextBox.Name = "код_специальностиTextBox";
-            this.код_специальностиTextBox.Size = new System.Drawing.Size(100, 26);
+            this.код_специальностиTextBox.Size = new System.Drawing.Size(290, 26);
             this.код_специальностиTextBox.TabIndex = 8;
             // 
             // studentsGroupBox
@@ -309,179 +323,10 @@
             this.studentsGroupBox.Controls.Add(this.bindingNavigator1);
             this.studentsGroupBox.Location = new System.Drawing.Point(12, 211);
             this.studentsGroupBox.Name = "studentsGroupBox";
-            this.studentsGroupBox.Size = new System.Drawing.Size(1523, 420);
+            this.studentsGroupBox.Size = new System.Drawing.Size(1531, 444);
             this.studentsGroupBox.TabIndex = 9;
             this.studentsGroupBox.TabStop = false;
             this.studentsGroupBox.Text = "Студенты";
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.toolStripButton1;
-            this.bindingNavigator1.BindingSource = this.группыBindingSource;
-            this.bindingNavigator1.CountItem = this.toolStripLabel1;
-            this.bindingNavigator1.DeleteItem = this.toolStripButton2;
-            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripSeparator1,
-            this.toolStripTextBox1,
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripSeparator3,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton7,
-            this.toolStripSeparator4,
-            this.findToolStripTextBox,
-            this.findToolStripButton,
-            this.toolStripSeparator5});
-            this.bindingNavigator1.Location = new System.Drawing.Point(3, 22);
-            this.bindingNavigator1.MoveFirstItem = this.toolStripButton3;
-            this.bindingNavigator1.MoveLastItem = this.toolStripButton6;
-            this.bindingNavigator1.MoveNextItem = this.toolStripButton5;
-            this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1517, 34);
-            this.bindingNavigator1.TabIndex = 1;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton1.Text = "Add new";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(54, 29);
-            this.toolStripLabel1.Text = "of {0}";
-            this.toolStripLabel1.ToolTipText = "Total number of items";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton2.Text = "Delete";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton3.Text = "Move first";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton4.Text = "Move previous";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.AccessibleName = "Position";
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 31);
-            this.toolStripTextBox1.Text = "0";
-            this.toolStripTextBox1.ToolTipText = "Current position";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton5.Text = "Move next";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton6.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton6.Text = "Move last";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton7.Text = "Save Data";
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // студентыBindingSource
-            // 
-            this.студентыBindingSource.DataMember = "FK_Студенты_Группы";
-            this.студентыBindingSource.DataSource = this.группыBindingSource;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
-            // 
-            // findToolStripTextBox
-            // 
-            this.findToolStripTextBox.Name = "findToolStripTextBox";
-            this.findToolStripTextBox.Size = new System.Drawing.Size(100, 34);
-            // 
-            // findToolStripButton
-            // 
-            this.findToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.findToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.findToolStripButton.Name = "findToolStripButton";
-            this.findToolStripButton.Size = new System.Drawing.Size(50, 29);
-            this.findToolStripButton.Text = "Find";
-            this.findToolStripButton.Click += new System.EventHandler(this.findToolStripButton_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
-            // 
-            // findCheckBox
-            // 
-            this.findCheckBox.AutoSize = true;
-            this.findCheckBox.Location = new System.Drawing.Point(636, 29);
-            this.findCheckBox.Name = "findCheckBox";
-            this.findCheckBox.Size = new System.Drawing.Size(70, 24);
-            this.findCheckBox.TabIndex = 2;
-            this.findCheckBox.Text = "Filter";
-            this.findCheckBox.UseVisualStyleBackColor = true;
-            this.findCheckBox.CheckedChanged += new System.EventHandler(this.findCheckBox_CheckedChanged);
             // 
             // студентыDataGridView
             // 
@@ -506,7 +351,7 @@
             this.студентыDataGridView.Name = "студентыDataGridView";
             this.студентыDataGridView.RowHeadersWidth = 62;
             this.студентыDataGridView.RowTemplate.Height = 28;
-            this.студентыDataGridView.Size = new System.Drawing.Size(1513, 336);
+            this.студентыDataGridView.Size = new System.Drawing.Size(1521, 360);
             this.студентыDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -590,15 +435,176 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Width = 150;
             // 
-            // группыBindingSource
+            // студентыBindingSource
             // 
-            this.группыBindingSource.DataMember = "Группы";
-            this.группыBindingSource.DataSource = this.facultyDataSet;
+            this.студентыBindingSource.DataMember = "FK_Студенты_Группы";
+            this.студентыBindingSource.DataSource = this.группыBindingSource;
             // 
-            // facultyDataSet
+            // findCheckBox
             // 
-            this.facultyDataSet.DataSetName = "facultyDataSet";
-            this.facultyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.findCheckBox.AutoSize = true;
+            this.findCheckBox.Location = new System.Drawing.Point(636, 29);
+            this.findCheckBox.Name = "findCheckBox";
+            this.findCheckBox.Size = new System.Drawing.Size(70, 24);
+            this.findCheckBox.TabIndex = 2;
+            this.findCheckBox.Text = "Filter";
+            this.findCheckBox.UseVisualStyleBackColor = true;
+            this.findCheckBox.CheckedChanged += new System.EventHandler(this.findCheckBox_CheckedChanged);
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.toolStripButton1;
+            this.bindingNavigator1.BindingSource = this.группыBindingSource;
+            this.bindingNavigator1.CountItem = this.toolStripLabel1;
+            this.bindingNavigator1.DeleteItem = this.toolStripButton2;
+            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator3,
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton7,
+            this.toolStripSeparator4,
+            this.findToolStripTextBox,
+            this.findToolStripButton,
+            this.toolStripSeparator5});
+            this.bindingNavigator1.Location = new System.Drawing.Point(3, 22);
+            this.bindingNavigator1.MoveFirstItem = this.toolStripButton3;
+            this.bindingNavigator1.MoveLastItem = this.toolStripButton6;
+            this.bindingNavigator1.MoveNextItem = this.toolStripButton5;
+            this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
+            this.bindingNavigator1.Size = new System.Drawing.Size(1525, 34);
+            this.bindingNavigator1.TabIndex = 1;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton1.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton1.Text = "Add new";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(54, 29);
+            this.toolStripLabel1.Text = "of {0}";
+            this.toolStripLabel1.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton2.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton2.Text = "Delete";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton3.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton3.Text = "Move first";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton4.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton4.Text = "Move previous";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.AccessibleName = "Position";
+            this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 31);
+            this.toolStripTextBox1.Text = "0";
+            this.toolStripTextBox1.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton5.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton5.Text = "Move next";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton6.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton6.Text = "Move last";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton7.Text = "Save Data";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
+            // 
+            // findToolStripTextBox
+            // 
+            this.findToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.findToolStripTextBox.Name = "findToolStripTextBox";
+            this.findToolStripTextBox.Size = new System.Drawing.Size(100, 34);
+            // 
+            // findToolStripButton
+            // 
+            this.findToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.findToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.findToolStripButton.Name = "findToolStripButton";
+            this.findToolStripButton.Size = new System.Drawing.Size(50, 29);
+            this.findToolStripButton.Text = "Find";
+            this.findToolStripButton.Click += new System.EventHandler(this.findToolStripButton_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
             // группыTableAdapter
             // 
@@ -618,30 +624,39 @@
             // 
             this.студентыTableAdapter.ClearBeforeFill = true;
             // 
-            // фИО_деканаLabel
+            // факультетBindingSource
             // 
-            фИО_деканаLabel.AutoSize = true;
-            фИО_деканаLabel.Location = new System.Drawing.Point(12, 160);
-            фИО_деканаLabel.Name = "фИО_деканаLabel";
-            фИО_деканаLabel.Size = new System.Drawing.Size(110, 20);
-            фИО_деканаLabel.TabIndex = 10;
-            фИО_деканаLabel.Text = "ФИО декана:";
+            this.факультетBindingSource.DataMember = "Факультет";
+            this.факультетBindingSource.DataSource = this.facultyDataSet;
             // 
-            // фИО_деканаTextBox
+            // факультетTableAdapter
             // 
-            this.фИО_деканаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.группыBindingSource, "ФИО декана", true));
-            this.фИО_деканаTextBox.Location = new System.Drawing.Point(203, 157);
-            this.фИО_деканаTextBox.Name = "фИО_деканаTextBox";
-            this.фИО_деканаTextBox.Size = new System.Drawing.Size(100, 26);
-            this.фИО_деканаTextBox.TabIndex = 11;
+            this.факультетTableAdapter.ClearBeforeFill = true;
+            // 
+            // фИО_деканаLabel1
+            // 
+            фИО_деканаLabel1.AutoSize = true;
+            фИО_деканаLabel1.Location = new System.Drawing.Point(12, 159);
+            фИО_деканаLabel1.Name = "фИО_деканаLabel1";
+            фИО_деканаLabel1.Size = new System.Drawing.Size(110, 20);
+            фИО_деканаLabel1.TabIndex = 12;
+            фИО_деканаLabel1.Text = "ФИО декана:";
+            // 
+            // фИО_деканаTextBox1
+            // 
+            this.фИО_деканаTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.факультетBindingSource, "ФИО декана", true));
+            this.фИО_деканаTextBox1.Location = new System.Drawing.Point(203, 156);
+            this.фИО_деканаTextBox1.Name = "фИО_деканаTextBox1";
+            this.фИО_деканаTextBox1.Size = new System.Drawing.Size(290, 26);
+            this.фИО_деканаTextBox1.TabIndex = 13;
             // 
             // GroupsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1547, 627);
-            this.Controls.Add(фИО_деканаLabel);
-            this.Controls.Add(this.фИО_деканаTextBox);
+            this.ClientSize = new System.Drawing.Size(1555, 651);
+            this.Controls.Add(фИО_деканаLabel1);
+            this.Controls.Add(this.фИО_деканаTextBox1);
             this.Controls.Add(this.studentsGroupBox);
             this.Controls.Add(номер_группыLabel);
             this.Controls.Add(this.номер_группыTextBox);
@@ -658,15 +673,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.группыBindingNavigator)).EndInit();
             this.группыBindingNavigator.ResumeLayout(false);
             this.группыBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.группыBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facultyDataSet)).EndInit();
             this.studentsGroupBox.ResumeLayout(false);
             this.studentsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.студентыDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.студентыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.студентыDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.группыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facultyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.факультетBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,6 +743,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.TextBox фИО_деканаTextBox;
+        private System.Windows.Forms.BindingSource факультетBindingSource;
+        private facultyDataSetTableAdapters.ФакультетTableAdapter факультетTableAdapter;
+        private System.Windows.Forms.TextBox фИО_деканаTextBox1;
     }
 }

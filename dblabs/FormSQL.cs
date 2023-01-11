@@ -18,25 +18,15 @@ namespace dblabs
         {
             InitializeComponent();
         }
-        //объявляем метод, на вход подаем строку запроса, а возвращаем объект DataTable
         DataTable FillDataGridView(string sqlSelect)
         {
-            //Создаем объект connection класса SqlConnection для соединения с БД
-            //CafeConnectionString – строка описания соединения с источником данных
-
             SqlConnection connection = new
-           SqlConnection(Properties.Settings.Default.facultyConnectionString);
-            //Создаем объект command для SQL команды
+                SqlConnection(Properties.Settings.Default.facultyConnectionString);
             SqlCommand command = connection.CreateCommand();
-            //Заносим текст SQL запроса через параметр sqlSelect
             command.CommandText = sqlSelect;
-            //Создаем объект adapter класса SqlDataAdapter
             SqlDataAdapter adapter = new SqlDataAdapter();
-            //Задаем адаптеру нужную команду, в данном случае команду Select
             adapter.SelectCommand = command;
-            //Создаем объект table для последующего отображения результата запроса
             DataTable table = new DataTable();
-            //заполним набор данных результатом запроса
             adapter.Fill(table);
             return table;
         }
@@ -69,19 +59,8 @@ namespace dblabs
                 "WHERE [ФИО преподавателя] = 'Горяинов Александр Евгеньевич'");
         }
 
-        private void textBoxGroupNumber_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void checkBoxDescendingNameSort_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonFind_Click(object sender, EventArgs e)
         {
-            //try
-            //{
             textBoxGroupNumber.Text = "580-2";
             if (textBoxGroupNumber.Text.Length == 0)
             {
@@ -101,17 +80,7 @@ namespace dblabs
             {
                 sqlSelect += " ORDER BY Студенты.ФИО";
             }
-            //sqlSelect += " GROUP BY [Номер зачётной книжки]";
             dataGridViewFullSelect.DataSource = FillDataGridView(sqlSelect);
-            //}
-            //catch (Exception exception)
-            //{
-
-            //    MessageBox.Show(exception.Message,
-            //        "Ошибка",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //}
         }
 
         private void buttonDoSubquery_Click(object sender, EventArgs e)
@@ -173,14 +142,5 @@ namespace dblabs
             }
         }
 
-        private void tabPageDML_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxDisciplineName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
